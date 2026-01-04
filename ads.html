@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Ads</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f9f9f9;
+    text-align: center;
+  }
+
+  header {
+    background: #222;
+    color: #fff;
+    padding: 15px;
+  }
+
+  header h1 span { color: #00b894; }
+
+  section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .ad-container {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  video {
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .watchButton {
+    padding: 10px 15px;
+    background: #00b894;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .watchButton:hover { background: #019170; }
+
+  .earnedMessage {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00b894;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 12px;
+    background: #00b894;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  .back-link:hover { background: #019170; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Digital <span>Marketing</span></h1>
+</header>
+
+<section>
+  <h2>Social Media Ads - Watch & Earn</h2>
+
+  <!-- Five ad videos -->
+  <div class="ad-container">
+    <video id="video1">
+      <source src="video/payotvideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button class="watchButton" onclick="startWatch('video1', this, 'earned1')">Subscribe & Watch Video 1</button>
+    <div id="earned1" class="earnedMessage"></div>
+  </div>
+
+  <div class="ad-container">
+    <video id="video2">
+      <source src="video/shortv.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button class="watchButton" onclick="startWatch('video2', this, 'earned2')">Subscribe & Watch Video 2</button>
+    <div id="earned2" class="earnedMessage"></div>
+  </div>
+
+  <div class="ad-container">
+    <video id="video3">
+      <source src="video/engi.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button class="watchButton" onclick="startWatch('video3', this, 'earned3')">Subscribe & Watch Video 3</button>
+    <div id="earned3" class="earnedMessage"></div>
+  </div>
+
+  <div class="ad-container">
+    <video id="video4">
+      <source src="video/six.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button class="watchButton" onclick="startWatch('video4', this, 'earned4')">Subscribe & Watch Video 4</button>
+    <div id="earned4" class="earnedMessage"></div>
+  </div>
+
+  <div class="ad-container">
+    <video id="video5">
+      <source src="video/inspect.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button class="watchButton" onclick="startWatch('video5', this, 'earned5')">Subscribe & Watch Video 5</button>
+    <div id="earned5" class="earnedMessage"></div>
+  </div>
+
+  <a href="main.html" class="back-link">&larr; Back to Home</a>
+</section>
+
+<script>
+  const REWARD_PER_VIDEO = 10; // KES earned per video
+  let totalBalance = 0;
+
+  function startWatch(videoId, button, earnedId) {
+    const video = document.getElementById(videoId);
+    const earnedDiv = document.getElementById(earnedId);
+
+    // Disable button while watching
+    button.disabled = true;
+    button.innerText = "Watching...";
+
+    // Play video from start
+    video.currentTime = 0;
+    video.play();
+
+    // When video ends
+    video.onended = function() {
+      totalBalance += REWARD_PER_VIDEO;
+      earnedDiv.innerText = `✅ You earned ${REWARD_PER_VIDEO} KES! Total Balance: ${totalBalance} KES`;
+      button.innerText = "Watched & Earned";
+    };
+  }
+</script>
+
+</body>
+</html>
+

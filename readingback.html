@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read SEO Guide</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; text-align:center; }
+header { background:#222; color:#fff; padding:15px; }
+header h1 span { color:#00b894; }
+section { max-width:900px; margin:40px auto; padding:20px; background:#fff; border-radius:8px; border:1px solid #ddd; }
+h2 { color:#00b894; }
+p { text-align:justify; line-height:1.6; }
+button { padding:10px 15px; background:#00b894; color:#fff; border:none; border-radius:6px; font-weight:bold; cursor:pointer; margin-top:15px; }
+button:hover { background:#019170; }
+button:disabled { background:#ccc; cursor:not-allowed; }
+.tip { margin-top:15px; display:none; background:#e0f7fa; padding:10px; border-radius:6px; }
+.back-link { display:inline-block; margin-top:20px; padding:8px 12px; background:#00b894; color:#fff; text-decoration:none; border-radius:6px; font-weight:bold; }
+.back-link:hover { background:#019170; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>SEO Task: Read SEO Guide</h1>
+</header>
+
+<section>
+<h2>Introduction to SEO</h2>
+
+<p>Search Engine Optimization (SEO) is the process of improving your website’s visibility on search engines like Google. By optimizing your website content, structure, and meta tags, you can increase your chances of ranking higher in search results. A higher ranking leads to more traffic, more potential customers, and greater success for your business.</p>
+
+<p>Key components of SEO include:
+<ul style="text-align:left;">
+<li><strong>Keyword Research:</strong> Find the words and phrases people use when searching for your products or services.</li>
+<li><strong>On-Page SEO:</strong> Optimize your titles, meta descriptions, headings, and content for your target keywords.</li>
+<li><strong>Technical SEO:</strong> Ensure your website loads quickly, is mobile-friendly, and has a proper sitemap.</li>
+<li><strong>Content Marketing:</strong> Create high-quality content that is useful, engaging, and shareable.</li>
+<li><strong>Backlinks:</strong> Earn links from other reputable websites to improve your domain authority.</li>
+</ul>
+</p>
+
+<p>Remember, SEO is a continuous process. Keep monitoring your website’s performance, adjust your strategies, and stay updated with the latest SEO trends to maintain a strong online presence.</p>
+
+<button id="markReadBtn" onclick="markRead()">Mark as Read & Earn 5 KES</button>
+<div class="tip" id="tipDiv"></div>
+
+<a href="optimization.html" class="back-link">&larr; Back to SEO Tasks</a>
+</section>
+
+<script>
+let reward = 5;
+function markRead() {
+  const tipDiv = document.getElementById("tipDiv");
+  tipDiv.innerText = `✅ You have successfully read the SEO guide and earned ${reward} KES!`;
+  tipDiv.style.display = "block";
+  document.getElementById("markReadBtn").disabled = true;
+}
+</script>
+
+</body>
+</html>

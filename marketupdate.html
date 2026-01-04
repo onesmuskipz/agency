@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Market Update</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.balance {
+  background: #eafaf1;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.update {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+}
+
+.links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.links a {
+  color: #00b894;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>Market Update</h2>
+
+  <div class="balance">
+    Reward: <strong>+5 KES</strong> after reading
+  </div>
+
+  <div class="update" id="updateText">
+    <p><strong>Today's Market Summary:</strong></p>
+
+    <p>
+      The financial markets showed mixed reactions today as global investors
+      responded to inflation data and central bank signals. Major indices
+      experienced mild volatility, with technology stocks facing selling
+      pressure while energy and commodity sectors gained momentum.
+    </p>
+
+    <p>
+      In the cryptocurrency market, Bitcoin remained range-bound as traders
+      awaited confirmation of a breakout. Ethereum showed slight strength,
+      supported by increased on-chain activity.
+    </p>
+
+    <p>
+      Analysts advise traders to exercise proper risk management and avoid
+      over-leveraging positions during periods of uncertainty.
+    </p>
+  </div>
+
+  <button id="readBtn" onclick="completeReading()">Finish Reading</button>
+
+  <div class="links">
+    <a href="content.html">← Back to Content Tasks</a>
+  </div>
+
+</div>
+
+<script>
+let completed = false;
+
+function completeReading() {
+  if (completed) return;
+
+  completed = true;
+  const btn = document.getElementById("readBtn");
+  btn.disabled = true;
+  btn.innerText = "Completed ✔";
+
+  alert("Market update read successfully. Reward will be credited.");
+  // reward logic / backend hook goes here
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | Trading Platform</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #00b894;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #019170;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+
+  <form id="loginForm">
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p class="error" id="errorMsg" style="display:none;">Invalid email or password!</p>
+  <p class="success" id="successMsg" style="display:none;">Login successful! Redirecting...</p>
+</div>
+
+<script>
+const form = document.getElementById("loginForm");
+const errorMsg = document.getElementById("errorMsg");
+const successMsg = document.getElementById("successMsg");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = form.email.value.trim();
+  const password = form.password.value.trim();
+
+  const savedAccount = JSON.parse(localStorage.getItem("account"));
+
+  if (savedAccount && savedAccount.email === email && savedAccount.password === password) {
+    errorMsg.style.display = "none";
+    successMsg.style.display = "block";
+
+    // Redirect to main dashboard after 1.5s
+    setTimeout(() => {
+      window.location.href = "main.html";
+    }, 1500);
+
+  } else {
+    errorMsg.style.display = "block";
+    successMsg.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share SEO Tips</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; text-align:center; }
+header { background:#222; color:#fff; padding:15px; }
+header h1 span { color:#00b894; }
+section { max-width:900px; margin:40px auto; padding:20px; background:#fff; border-radius:8px; border:1px solid #ddd; }
+textarea { width:95%; padding:10px; border-radius:6px; border:1px solid #ccc; margin-top:10px; }
+button { padding:10px 15px; background:#00b894; color:#fff; border:none; border-radius:6px; font-weight:bold; cursor:pointer; margin-top:15px; }
+button:hover { background:#019170; }
+button:disabled { background:#ccc; cursor:not-allowed; }
+.tip { margin-top:15px; display:none; background:#e0f7fa; padding:10px; border-radius:6px; text-align:left; }
+.back-link { display:inline-block; margin-top:20px; padding:8px 12px; background:#00b894; color:#fff; text-decoration:none; border-radius:6px; font-weight:bold; }
+.back-link:hover { background:#019170; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>SEO Task: Share Tips on Social Media</h1>
+</header>
+
+<section>
+<p>Write a short SEO tip below that you would share on social media. After submitting, you will earn 5 KES.</p>
+
+<textarea id="seoTip" rows="5" placeholder="Type your SEO tip here..."></textarea>
+<br>
+<button id="submitBtn" onclick="shareTip()">Submit & Earn 5 KES</button>
+
+<div class="tip" id="tipDiv"></div>
+
+<a href="optimization.html" class="back-link">&larr; Back to SEO Tasks</a>
+</section>
+
+<script>
+let reward = 5;
+function shareTip() {
+  const tip = document.getElementById("seoTip").value.trim();
+  if(tip.length === 0) { alert("Please write a tip before submitting!"); return; }
+
+  const tipDiv = document.getElementById("tipDiv");
+  tipDiv.innerText = `✅ You successfully shared your SEO tip and earned ${reward} KES!`;
+  tipDiv.style.display = "block";
+  document.getElementById("submitBtn").disabled = true;
+}
+</script>
+
+</body>
+</html>

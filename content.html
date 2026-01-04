@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trading Tasks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.balance {
+  background: #eafaf1;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.task button,
+.task a {
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.task a {
+  display: inline-block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>Account Dashboard</h2>
+
+  <div class="balance">
+    Account Balance: <span id="balance">0</span> KES
+  </div>
+
+  <h3>Content Strategy Tasks</h3>
+
+  <!-- Watch Educational Video - redirect -->
+  <div class="task">
+    <span>Watch Educational Video</span>
+    <a href="watchv.html">Start Watching</a>
+  </div>
+
+  <!-- Market Update - redirect -->
+  <div class="task">
+    <span>Read Market Update</span>
+    <a href="marketupdate.html">Read Update</a>
+  </div>
+
+  <!-- Quiz - redirect -->
+  <div class="task">
+    <span>Answer Trading Quiz</span>
+    <a href="quiz.html">Start Quiz</a>
+  </div>
+
+</div>
+
+<script>
+let balance = 0;
+
+function doTask(amount, btn) {
+  balance += amount;
+  document.getElementById("balance").innerText = balance;
+  btn.disabled = true;
+  btn.innerText = "Completed";
+}
+</script>
+
+</body>
+</html>
+
+

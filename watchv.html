@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Watch Educational Videos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.video-box {
+  margin-top: 20px;
+}
+
+video {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.reward {
+  background: #eafaf1;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+}
+
+.links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.links a {
+  color: #00b894;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>Watch Educational Videos</h2>
+
+  <!-- Video 1 -->
+  <div class="reward">
+    Video 1 Reward: <strong>+8 KES</strong> after watching fully
+  </div>
+  <div class="video-box">
+    <video id="video1" controls>
+      <source src="video/engi.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <button id="btn1" disabled onclick="completeVideo(1)">Finish Video 1</button>
+
+  <!-- Video 2 -->
+  <div class="reward" style="margin-top:30px;">
+    Video 2 Reward: <strong>+8 KES</strong> after watching fully
+  </div>
+  <div class="video-box">
+    <video id="video2" controls>
+      <source src="video/inspect.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <button id="btn2" disabled onclick="completeVideo(2)">Finish Video 2</button>
+
+  <div class="links">
+    <a href="content.html">← Back to Content Tasks</a>
+  </div>
+
+</div>
+
+<script>
+let watched1 = false;
+let watched2 = false;
+
+const video1 = document.getElementById("video1");
+const btn1 = document.getElementById("btn1");
+
+const video2 = document.getElementById("video2");
+const btn2 = document.getElementById("btn2");
+
+// Enable button when video ends
+video1.addEventListener("ended", () => {
+  if (!watched1) btn1.disabled = false;
+});
+video2.addEventListener("ended", () => {
+  if (!watched2) btn2.disabled = false;
+});
+
+function completeVideo(num) {
+  if (num === 1 && !watched1) {
+    watched1 = true;
+    btn1.disabled = true;
+    btn1.innerText = "Completed ✔";
+    alert("Video 1 watched successfully. Reward will be credited.");
+    // backend reward logic for video 1
+  } else if (num === 2 && !watched2) {
+    watched2 = true;
+    btn2.disabled = true;
+    btn2.innerText = "Completed ✔";
+    alert("Video 2 watched successfully. Reward will be credited.");
+    // backend reward logic for video 2
+  }
+}
+</script>
+
+</body>
+</html>
